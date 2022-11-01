@@ -18,13 +18,19 @@ if (isProduction) {
   app.use(express.static(path.join(__dirname, "../dist")));
 }
 
-app.get("/api", (req, res) => {
-  res.json([1, 2, 3, 4]);
-});
+app.get("/api/stories", async (req, res) => {
+  try {
+    const response = await axios.get('https://hacker-news.firebaseio.com/v0/newstories.json');
 
-app.get("/api/stories-ids", async (req, res) => {
-  const response = await axios.get('https://hacker-news.firebaseio.com/v0/newstories.json');
-  res.json(response.data);
+    const promises = response.data.slice(0, 100).map((storyId) => (
+        axios.get(`https://hacker-news.firebaseio.com/v0/item/${storyId}.json`).then(res => res.data)
+      )
+    );
+    const result = await Promise.all(promises);
+    res.json(result);
+  } catch (e) {
+    res.json(e);
+  }
 });
 
 app.use('*', (req, res) => {

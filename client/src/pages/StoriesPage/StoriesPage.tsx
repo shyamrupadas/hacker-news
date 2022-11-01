@@ -14,8 +14,8 @@ export const StoriesPage = () => {
 
   return (
     <div>
-      {storiesIds.map(id => (
-        <div key={id}>That is is number {id}
+      {storiesIds.map(({ id, by, title }) => (
+        <div key={id}>By {by} - {title}
           <NavLink to={`story/${id}`}>Link</NavLink>
         </div>
 
