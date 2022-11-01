@@ -1,7 +1,8 @@
 import React from 'react';
+import { RouteComponentProps } from 'react-router-dom';
 
-export const StoriesItemPage = ({ match }: any) => {
-  const storyId: number | null = +match.params.id;
+export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string}>) => {
+  const storyId = +match.params.id;
 
   return (
     <div>
