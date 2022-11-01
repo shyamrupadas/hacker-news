@@ -9,7 +9,7 @@
     "client-build": "tsc && vite build",
     "client-preview": "vite preview",
     "server-dev": "cd ./server && nodemon index.js",
-    "server-build": "tsc --build && cross-env NODE_ENV=production node build/index.js"
+    "server-start": "cd ./server && cross-env NODE_ENV=production node index.js"
   },
   "dependencies": {
     "axios": "^1.1.3",

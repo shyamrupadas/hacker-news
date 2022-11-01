@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-export const BASE_URL = 'https://hacker-news.firebaseio.com/v0/';
-export const NEW_STORIES_URL = `${BASE_URL}newstories.json`;
+export const BASE_URL = 'http://localhost:5000/api/';
+export const NEW_STORIES_URL = `${BASE_URL}stories-ids`;
 export const STORY_URL = `${BASE_URL}item/`;
 
 export const getStoriesIds = () => (

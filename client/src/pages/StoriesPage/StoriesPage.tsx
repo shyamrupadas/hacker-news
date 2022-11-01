@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { getStoriesIds } from '../../api';
 
-
 export const StoriesPage = () => {
   const [storiesIds, setStoriesIds] = useState([]);
 
