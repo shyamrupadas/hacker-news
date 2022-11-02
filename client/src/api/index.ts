@@ -9,3 +9,10 @@ export const getStories = () => (
     .get(STORIES_URL)
     .then(res => res.data)
 );
+
+export const getStory = async (storyId: number) => {
+  return await axios
+    .get(`${STORY_URL + storyId}.json`)
+    .then(res => res.data);
+};
+
