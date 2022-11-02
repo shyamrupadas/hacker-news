@@ -1,6 +1,6 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { StoryState, StoryType } from '../types/types';
-import { getStories } from '../api';
+import { getStories, getStory } from '../api';
 
 const initialState: StoryState = {
   stories: [],
@@ -24,6 +24,17 @@ export const fetchStories = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       return await getStories();
+    } catch (error: any) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchStory = createAsyncThunk(
+  'story/fetchStory',
+  async (id: number, { rejectWithValue }) => {
+    try {
+      return await getStory(id);
     } catch (error: any) {
       return rejectWithValue(error.message);
     }
