@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { fetchStories } from '../../store/storySlice';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
+import { useAppDispatch } from '../../store';
+import { fetchStories } from '../../store/storySlice';
 import { PreviewStory } from '../../components/PreviewStory';
 import { StoryType } from '../../types/types';
-import s from './StoriesPage.module.css'
+import s from './StoriesPage.module.css';
 
 export const StoriesPage = () => {
   const { stories, error, loading } = useTypedSelector(state => state.storySlice);
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     dispatch(fetchStories());
