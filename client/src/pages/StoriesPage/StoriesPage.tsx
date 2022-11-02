@@ -1,20 +1,24 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { getStoriesIds } from '../../api';
+import { useDispatch } from 'react-redux';
+import { fetchStories } from '../../store/storySlice';
+import { useTypedSelector } from '../../hooks/useTypedSelector';
 
 export const StoriesPage = () => {
-  const [storiesIds, setStoriesIds] = useState([]);
+  const { stories, error, loading } = useTypedSelector(state => state.storySlice);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    getStoriesIds()
-      .then(res => {
-        setStoriesIds(res);
-      })
-  }, []);
+    dispatch(fetchStories());
+  }, [dispatch]);
+
+  if (error) return <h1>{error}</h1>
+
+  if (loading) return <h1>Loading...</h1>
 
   return (
     <div>
-      {storiesIds.map(({ id, by, title }) => (
+      {stories.map(({ id, by, title }) => (
         <div key={id}>By {by} - {title}
           <NavLink to={`story/${id}`}>Link</NavLink>
         </div>
