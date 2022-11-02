@@ -28,8 +28,8 @@ app.get("/api/stories", async (req, res) => {
     );
     const result = await Promise.all(promises);
     res.json(result);
-  } catch (e) {
-    res.json(e);
+  } catch {
+    res.status(500).send('Server error');
   }
 });
 
