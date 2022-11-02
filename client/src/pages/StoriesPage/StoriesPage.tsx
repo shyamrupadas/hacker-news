@@ -4,6 +4,7 @@ import { fetchStories } from '../../store/storySlice';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { PreviewStory } from '../../components/PreviewStory';
 import { StoryType } from '../../types/types';
+import s from './StoriesPage.module.css'
 
 export const StoriesPage = () => {
   const { stories, error, loading } = useTypedSelector(state => state.storySlice);
@@ -18,7 +19,7 @@ export const StoriesPage = () => {
   if (loading) return <h1>Loading...</h1>
 
   return (
-    <>
+    <div className={s.container}>
       <header>
       <h1>
         Hacker-news
@@ -36,6 +37,6 @@ export const StoriesPage = () => {
       <footer>
         (c) <a href="https://github.com/shyamrupadas">shyamrupadas</a> 2022
       </footer>
-    </>
+    </div>
   );
 };
