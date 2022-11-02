@@ -28,8 +28,8 @@ export const StoriesPage = () => {
       <main>
         <ol>
           {stories.map((story: StoryType) => (
-            <li>
-              <PreviewStory key={story.id} story={story} />
+            <li key={story.id}>
+              <PreviewStory story={story} />
             </li>
           ))}
         </ol>
