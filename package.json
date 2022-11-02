@@ -4,10 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite\" \"cd ./server && nodemon index.js\"",
-    "client-dev": "vite",
-    "client-build": "tsc && vite build",
-    "client-preview": "vite preview",
+    "dev": "concurrently \"vite serve ./client\" \"cd ./server && nodemon index.js\"",
+    "client-dev": "vite serve ./client",
+    "client-build": "cd ./client && tsc && vite build",
+    "client-preview": "cd ./client && vite preview",
     "server-dev": "cd ./server && nodemon index.js",
     "server-start": "cd ./server && cross-env NODE_ENV=production node index.js"
   },

@@ -15,7 +15,7 @@ const app = express();
 app.use(cors());
 
 if (isProduction) {
-  app.use(express.static(path.join(__dirname, "../dist")));
+  app.use(express.static(path.join(__dirname, "../client/dist")));
 }
 
 app.get("/api/stories", async (req, res) => {
