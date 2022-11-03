@@ -1,6 +1,5 @@
-import { Response } from 'express';
+import { Request, Response } from 'express';
 import axios from 'axios';
-
 
 const BASE_URL = 'https://hacker-news.firebaseio.com/v0/';
 const STORIES_URL = `${BASE_URL}newstories.json`;
@@ -20,6 +19,17 @@ class StoryController {
         );
 
       const result = await Promise.all(promises);
+      res.json(result);
+    } catch (e) {
+      res.status(500).json(e);
+    }
+  }
+
+  async getOne(req: Request, res: Response) {
+    try {
+      const result = await axios.get(`${STORY_URL}${req.params.id}.json`)
+        .then(res => res.data);
+
       res.json(result);
     } catch (e) {
       res.status(500).json(e);
