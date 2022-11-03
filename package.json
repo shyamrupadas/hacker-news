@@ -4,12 +4,14 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"vite serve ./client\" \"cd ./server && nodemon index.js\"",
+    "dev": "concurrently \"yarn server:dev\" \"yarn client:dev\"",
+    "build": "concurrently \"yarn server:build\" \"yarn client:build\"",
+    "start": "cd ./server && node dist/index.js",
+    "server:dev": "cd ./server && concurrently \"tsc --watch\" \"nodemon -q dist/index.js\"",
+    "server:build": "cd ./server && tsc",
     "client:dev": "vite serve ./client",
     "client:build": "cd ./client && tsc && vite build",
-    "client:preview": "cd ./client && vite preview",
-    "server:dev": "cd ./server && concurrently \"tsc --watch\" \"nodemon -q dist/index.js\"",
-    "server:start": "cd ./server && cross-env NODE_ENV=production node index.js"
+    "client:preview": "cd ./client && vite preview"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
