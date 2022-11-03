@@ -3,11 +3,12 @@ import { RouteComponentProps } from 'react-router-dom';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useAppDispatch } from '../../store';
 import { fetchStory } from '../../store/storySlice';
+import { Menu } from '../../components/Menu';
 
-export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string}>) => {
+export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) => {
   const storyId = +match.params.id;
-  // const { title } = useTypedSelector(state => state.storySlice.story);
-  const { story, error, loading } = useTypedSelector(state => state.storySlice);
+  const story = useTypedSelector((state) => state.storySlice.stories.find(story => story.id === storyId));
+  const { error, loading } = useTypedSelector(state => state.storySlice);
 
   const dispatch = useAppDispatch();
 
@@ -15,8 +16,13 @@ export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string}>) =
     dispatch(fetchStory(storyId));
   }, [storyId, dispatch]);
 
-  return story.time ? (
+  if (error) return <h1>{error}</h1>
+
+  if (loading) return <h1>Loading...</h1>
+
+  return story?.time ? (
     <div>
+      <Menu story={story} />
       <h4>{story.title}</h4>
     </div>
   ) : null;
