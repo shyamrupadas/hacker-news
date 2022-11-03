@@ -19,7 +19,7 @@ export const Menu: React.FC<MenuProps> = ({ story }) => {
         Read the original
       </a>
       <Divider />
-      <Button>Update</Button>
+      <Button>Refresh</Button>
     </>
   );
 };

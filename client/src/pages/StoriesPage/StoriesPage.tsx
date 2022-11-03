@@ -22,7 +22,7 @@ export const StoriesPage = () => {
     <div className={s.container}>
       <header>
         <h1>Hacker-news</h1>
-        <Button>Update</Button>
+        <Button>Refresh</Button>
       </header>
       <main>
         <ol>
@@ -34,7 +34,7 @@ export const StoriesPage = () => {
         </ol>
       </main>
       <footer>
-        (c) <a href="https://github.com/shyamrupadas">shyamrupadas</a> 2022
+        &copy; <a href="https://github.com/shyamrupadas">shyamrupadas</a> 2022
       </footer>
     </div>
   );
