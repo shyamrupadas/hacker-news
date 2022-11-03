@@ -5,11 +5,11 @@
   "type": "module",
   "scripts": {
     "dev": "concurrently \"vite serve ./client\" \"cd ./server && nodemon index.js\"",
-    "client-dev": "vite serve ./client",
-    "client-build": "cd ./client && tsc && vite build",
-    "client-preview": "cd ./client && vite preview",
-    "server-dev": "cd ./server && nodemon index.js",
-    "server-start": "cd ./server && cross-env NODE_ENV=production node index.js"
+    "client:dev": "vite serve ./client",
+    "client:build": "cd ./client && tsc && vite build",
+    "client:preview": "cd ./client && vite preview",
+    "server:dev": "cd ./server && concurrently \"tsc --watch\" \"nodemon -q dist/index.js\"",
+    "server:start": "cd ./server && cross-env NODE_ENV=production node index.js"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.6",
@@ -23,6 +23,7 @@
     "react-router-dom": "5.3.4"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.14",
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.22",
