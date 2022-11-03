@@ -4,10 +4,12 @@ import { useAppDispatch } from '../../store';
 import { fetchStories } from '../../store/storySlice';
 import { PreviewStory } from '../../components/PreviewStory';
 import { StoryType } from '../../types/types';
+import { Button } from '../../components/Button';
+
 import s from './StoriesPage.module.css';
 
 export const StoriesPage = () => {
-  const { stories, error, loading } = useTypedSelector(state => state.storySlice);
+  const { stories, error } = useTypedSelector(state => state.storySlice);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -16,14 +18,11 @@ export const StoriesPage = () => {
 
   if (error) return <h1>{error}</h1>
 
-  if (loading) return <h1>Loading...</h1>
-
   return (
     <div className={s.container}>
       <header>
-      <h1>
-        Hacker-news
-      </h1>
+        <h1>Hacker-news</h1>
+        <Button>Update</Button>
       </header>
       <main>
         <ol>
