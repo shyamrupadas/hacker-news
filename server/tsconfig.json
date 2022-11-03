@@ -1,0 +1,29 @@
+{
+  "include": [
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
+  "compilerOptions": {
+    "target": "ES2021",
+    "module": "esnext",
+    "lib": ["dom", "es2021"],
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "incremental": true,
+    "noUnusedParameters": true,
+    "removeComments": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "strictNullChecks": true,
+    "allowSyntheticDefaultImports": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "esModuleInterop": true,
+    "outDir": "dist",
+    "rootDir": "./",
+    "sourceMap": true,
+    "useDefineForClassFields": true,
+  }
+}
