@@ -7,7 +7,7 @@ import commentRoutes from './src/CommentRoutes.js';
 
 const PORT = process.env.PORT || 5000;
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const isProduction = process.env.NODE_ENV === 'production'
+const isProduction = true;
 const app: Express = express();
 
 app.use(cors());
