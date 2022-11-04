@@ -6,6 +6,7 @@ import { fetchStory } from '../../store/storySlice';
 import { Comment } from '../../components/Comment';
 import { Divider } from '../../components/Divider';
 import { Button } from '../../components/Button';
+import { useRefreshPage } from '../../hooks/useRefreshPage';
 
 export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) => {
   const storyId = +match.params.id;
@@ -17,6 +18,8 @@ export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) 
   useEffect(() => {
     dispatch(fetchStory(storyId));
   }, [storyId, dispatch]);
+
+  useRefreshPage(() => fetchStory(storyId));
 
   const handleRefreshButtonClick = () => {
     dispatch(fetchStory(storyId))

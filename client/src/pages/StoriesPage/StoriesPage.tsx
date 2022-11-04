@@ -5,6 +5,7 @@ import { fetchStories } from '../../store/storySlice';
 import { PreviewStory } from '../../components/PreviewStory';
 import { StoryType } from '../../types/types';
 import { Button } from '../../components/Button';
+import { useRefreshPage } from '../../hooks/useRefreshPage';
 
 import s from './StoriesPage.module.css';
 
@@ -15,6 +16,8 @@ export const StoriesPage = () => {
   useEffect(() => {
     dispatch(fetchStories());
   }, [dispatch]);
+
+  useRefreshPage(fetchStories);
 
   const handleRefreshButtonClick = () => {
     dispatch(fetchStories());
