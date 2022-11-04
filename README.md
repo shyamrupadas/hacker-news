@@ -15,10 +15,7 @@ yarn dev
 ### Start in production mode
 Application will be available on http://127.0.0.1:5000/ 
 ```
-yarn build
-```
-```
-yarn start
+yarn build && yarn preview
 ```
 
 ## Реализованный функционал
