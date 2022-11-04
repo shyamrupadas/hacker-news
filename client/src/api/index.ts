@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-export const BASE_URL = 'http://localhost:5000/api/';
+const PORT = process.env.PORT || 5000;
+export const BASE_URL = `http://localhost:${PORT}/api/`;
 export const STORIES_URL = `${BASE_URL}stories/`;
 export const COMMENTS_URL = `${BASE_URL}comments/`;
 
