@@ -1,39 +1,25 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { formatDistanceToNow } from 'date-fns';
-import s from './PreviewStory.module.css';
-import { Divider } from '../Divider';
+import { StoryAttributes } from '../StoryAttributes';
+import { StoryType } from '../../types/types';
 
-export const PreviewStory = ({ story }: any) => {
-  const { id, by, title, score } = story;
+import s from './PreviewStory.module.css';
+
+type PreviewStoryType = {
+  story: StoryType
+};
+
+export const PreviewStory: React.FC<PreviewStoryType> = ({ story }) => {
+  const { id, title } = story;
 
   return (
     <div className={s.container}>
-      <h4>
+      <h3>
         <NavLink to={`story/${id}`}>
           {title}
         </NavLink>
-      </h4>
-      <div>
-        {score} points by {by}
-        <Divider />
-        {story.time && formatDistanceToNow(new Date(story.time * 1000))} ago
-        {story.kids?.length &&
-          <span>
-        <Divider />
-            {story.descendants > 0
-              ?
-              <NavLink to={`story/${id}`}>
-                {story.descendants} comments
-              </NavLink>
-              :
-              <>
-                {story.descendants} comments
-              </>
-            }
-        </span>
-        }
-      </div>
+      </h3>
+      <StoryAttributes story={story} withLink />
     </div>
   );
 };

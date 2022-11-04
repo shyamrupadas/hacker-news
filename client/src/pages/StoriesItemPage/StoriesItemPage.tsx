@@ -7,6 +7,7 @@ import { Comment } from '../../components/Comment';
 import { Divider } from '../../components/Divider';
 import { Button } from '../../components/Button';
 import { useRefreshPage } from '../../hooks/useRefreshPage';
+import { StoryAttributes } from '../../components/StoryAttributes';
 
 export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) => {
   const storyId = +match.params.id;
@@ -40,7 +41,8 @@ export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) 
       </a>
       <Divider />
       <Button onClick={handleRefreshButtonClick}>Refresh</Button>
-      <h4>{story.title}</h4>
+      <h2>{story.title}</h2>
+      <StoryAttributes story={story} />
       {story.kids?.map((kid: number) =>
         <Comment key={kid} kid={kid} />
       )}
