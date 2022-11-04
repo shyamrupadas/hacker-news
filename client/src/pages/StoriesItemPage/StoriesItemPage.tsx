@@ -1,10 +1,11 @@
 import React, { useEffect } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { NavLink, RouteComponentProps } from 'react-router-dom';
 import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useAppDispatch } from '../../store';
 import { fetchStory } from '../../store/storySlice';
-import { Menu } from '../../components/Menu';
 import { Comment } from '../../components/Comment';
+import { Divider } from '../../components/Divider';
+import { Button } from '../../components/Button';
 
 export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) => {
   const storyId = +match.params.id;
@@ -17,13 +18,25 @@ export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) 
     dispatch(fetchStory(storyId));
   }, [storyId, dispatch]);
 
+  const handleRefreshButtonClick = () => {
+    dispatch(fetchStory(storyId))
+  }
+
   if (error) return <h1>{error}</h1>
 
   if (loading) return <h1>Loading...</h1>
 
   return story?.time ? (
     <div>
-      <Menu story={story} />
+      <NavLink to='/'>
+        Back to news list
+      </NavLink>
+      <Divider />
+      <a href={story.url} target={'_blank'}>
+        Read the original
+      </a>
+      <Divider />
+      <Button onClick={handleRefreshButtonClick}>Refresh</Button>
       <h4>{story.title}</h4>
       {story.kids?.map((kid: number) =>
         <Comment key={kid} kid={kid} />

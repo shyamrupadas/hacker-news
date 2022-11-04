@@ -16,13 +16,17 @@ export const StoriesPage = () => {
     dispatch(fetchStories());
   }, [dispatch]);
 
-  if (error) return <h1>{error}</h1>
+  const handleRefreshButtonClick = () => {
+    dispatch(fetchStories());
+  }
+
+  if (error) return <h1>{error}</h1>;
 
   return (
     <div className={s.container}>
       <header>
         <h1>Hacker-news</h1>
-        <Button>Refresh</Button>
+        <Button onClick={handleRefreshButtonClick}>Refresh</Button>
       </header>
       <main>
         <ol>

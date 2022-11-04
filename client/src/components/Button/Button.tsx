@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { MouseEventHandler } from 'react';
 
 type ButtonType = {
   children: string
+  onClick: MouseEventHandler<HTMLButtonElement>
 }
 
-export const Button: React.FC<ButtonType> = ({children}) => {
+export const Button: React.FC<ButtonType> = ({children, onClick}) => {
   return (
-    <button>
+    <button onClick={onClick}>
       {children}
     </button>
   );

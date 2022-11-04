@@ -78,7 +78,6 @@ export const storySlice = createSlice({
     builder.addCase(fetchStory.fulfilled, (state, action) => {
       state.loading = false;
       const storyIndex = state.stories.findIndex(story => story.id === action.payload.id)
-      console.log(storyIndex);
       storyIndex >= 0 ? state.stories[storyIndex] = action.payload : state.stories.push(action.payload);
     });
   },
