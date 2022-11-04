@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "concurrently \"yarn server:dev\" \"yarn client:dev\"",
     "build": "concurrently \"yarn server:build\" \"yarn client:build\"",
-    "start": "cd ./server && cross-env NODE_ENV=production node dist/index.js",
+    "start": "cd ./server && node dist/index.js",
     "server:dev": "cd ./server && concurrently \"tsc --watch\" \"nodemon -q dist/index.js\"",
     "server:build": "cd ./server && tsc",
     "client:dev": "vite serve ./client",
