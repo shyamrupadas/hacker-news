@@ -28,7 +28,7 @@ export const StoriesPage = () => {
   return (
     <div className={s.container}>
       <header>
-        <h1>Hacker-news</h1>
+        <h1>Hacker News</h1>
         <Button onClick={handleRefreshButtonClick}>Refresh</Button>
       </header>
       <main>
@@ -40,9 +40,6 @@ export const StoriesPage = () => {
           ))}
         </ol>
       </main>
-      <footer>
-        &copy; <a href="https://github.com/shyamrupadas">shyamrupadas</a> 2022
-      </footer>
     </div>
   );
 };
