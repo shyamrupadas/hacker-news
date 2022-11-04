@@ -1,13 +1,8 @@
-import './App.css'
 import { Routes } from './components/routes';
+import { AppLayout } from './components/AppLayout/AppLayout';
 
-function App() {
-
-  return (
-    <div className="App">
-      <Routes />
-    </div>
-  )
-}
-
-export default App
+export const App = () => (
+  <AppLayout>
+    <Routes />
+  </AppLayout>
+);
