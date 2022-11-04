@@ -1,5 +1,5 @@
 import { Routes } from './components/routes';
-import { AppLayout } from './components/AppLayout/AppLayout';
+import { AppLayout } from './components/AppLayout';
 
 export const App = () => (
   <AppLayout>
