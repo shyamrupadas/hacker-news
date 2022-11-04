@@ -1,9 +1,10 @@
 import axios from 'axios';
 
-const PORT = process.env.PORT || 5000;
-export const BASE_URL = `http://localhost:${PORT}/api/`;
-export const STORIES_URL = `${BASE_URL}stories/`;
-export const COMMENTS_URL = `${BASE_URL}comments/`;
+const isProduction = process.env.NODE_ENV === 'production';
+const HOST = isProduction ? '/' : 'http://localhost:5000/';
+const BASE_URL = `${HOST}api/`;
+const STORIES_URL = `${BASE_URL}stories/`;
+const COMMENTS_URL = `${BASE_URL}comments/`;
 
 export const getStories = () => (
   axios
