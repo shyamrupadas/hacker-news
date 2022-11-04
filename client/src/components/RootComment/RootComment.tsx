@@ -27,27 +27,29 @@ export const RootComment: React.FC<CommentProps> = ({ kid }) => {
         <span>{comment.by}</span>
         <Divider />
         {formatDistanceToNow(new Date(comment.time * 1000))} ago
-        {comment.kids?.length && !showChildComments
-          ?
-          <>
-            <Divider />
-            <span>
-            [{comment.kids?.length} more]
-          </span>
-          </>
-          :
-          <>
-            <Divider />
-            <span>
-          [-]
-          </span>
-          </>
-        }
+        <span onClick={handleCommentClick}>
+          {
+            comment.kids?.length && !showChildComments
+              ?
+              <>
+                <Divider />
+                <span>[{comment.kids?.length} more]</span>
+              </>
+              :
+              <>
+                <Divider />
+                <span>[-]</span>
+              </>
+          }
+        </span>
       </header>
       {comment.text &&
         <p onClick={handleCommentClick} dangerouslySetInnerHTML={{ __html: comment.text }} />
       }
-      {showChildComments && comment.kids && comment.kids.map((kid: number) => <Comment />)}
+      {
+        showChildComments && comment.kids &&
+        comment.kids.map((kid: number) => <Comment key={kid} kid={kid} />)
+      }
     </div>
   );
 };
