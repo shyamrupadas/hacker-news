@@ -4,7 +4,7 @@ import { useTypedSelector } from '../../hooks/useTypedSelector';
 import { useAppDispatch } from '../../store';
 import { fetchStory } from '../../store/storySlice';
 import { Menu } from '../../components/Menu';
-import { RootComment } from '../../components/RootComment';
+import { Comment } from '../../components/Comment';
 
 export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) => {
   const storyId = +match.params.id;
@@ -26,7 +26,7 @@ export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) 
       <Menu story={story} />
       <h4>{story.title}</h4>
       {story.kids?.map((kid: number) =>
-        <RootComment kid={kid} />
+        <Comment key={kid} kid={kid} />
       )}
     </div>
   ) : null;

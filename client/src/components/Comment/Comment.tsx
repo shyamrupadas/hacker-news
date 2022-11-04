@@ -6,7 +6,7 @@ import { formatDistanceToNow } from 'date-fns';
 
 type CommentProps = {
   kid: number
-}
+};
 
 export const Comment: React.FC<CommentProps> = ({ kid }) => {
   const [comment, setComment] = useState<CommentType>({});
@@ -22,26 +22,26 @@ export const Comment: React.FC<CommentProps> = ({ kid }) => {
 
   return (
     <div>
-      <div>
-        {comment.by}
+      <header>
+        <span>{comment.by}</span>
         <Divider />
         {formatDistanceToNow(new Date(comment.time * 1000))} ago
         <span onClick={handleCommentClick}>
         {
           comment.kids?.length && !showChildComments
             ?
-            <span>
+            <>
               <Divider />
               <span>[{comment.kids?.length} more]</span>
-            </span>
+            </>
             :
-            <span>
+            <>
               <Divider />
-              <span className='pointer'>[-]</span>
-            </span>
+              <span>[-]</span>
+            </>
         }
           </span>
-      </div>
+      </header>
       {comment.text &&
         <p onClick={handleCommentClick} dangerouslySetInnerHTML={{ __html: comment.text }} />
       }
