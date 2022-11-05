@@ -59,12 +59,21 @@ export const storySlice = createSlice({
       // @ts-ignore
       state.error = action.payload;
     });
+    builder.addCase(fetchStory.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
     builder.addCase(fetchStory.fulfilled, (state, action) => {
       state.loading = false;
       const storyIndex = state.stories.findIndex((story) => story.id === action.payload.id);
       storyIndex >= 0
         ? (state.stories[storyIndex] = action.payload)
         : state.stories.push(action.payload);
+    });
+    builder.addCase(fetchStory.rejected, (state, action) => {
+      state.loading = false;
+      // @ts-ignore
+      state.error = action.payload;
     });
   }
 });
