@@ -40,7 +40,7 @@ export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) 
         Read the original
       </a>
       <Divider />
-      <Button onClick={handleRefreshButtonClick}>Refresh</Button>
+      <Button onClick={handleRefreshButtonClick} pending={loading}>Refresh</Button>
       <h2>{story.title}</h2>
       <StoryAttributes story={story} />
       {story.kids?.map((kid: number) =>

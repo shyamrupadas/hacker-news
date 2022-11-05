@@ -10,7 +10,7 @@ import { useRefreshPage } from '../../hooks/useRefreshPage';
 import s from './StoriesPage.module.css';
 
 export const StoriesPage = () => {
-  const { stories, error } = useTypedSelector(state => state.storySlice);
+  const { stories, error, loading } = useTypedSelector(state => state.storySlice);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -29,7 +29,7 @@ export const StoriesPage = () => {
     <div className={s.container}>
       <header>
         <h1>Hacker News</h1>
-        <Button onClick={handleRefreshButtonClick}>Refresh</Button>
+        <Button onClick={handleRefreshButtonClick} pending={loading}>Refresh</Button>
       </header>
       <main>
         <ol>

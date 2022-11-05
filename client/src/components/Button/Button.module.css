@@ -1,0 +1,18 @@
+.button {
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 2px;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.button:hover {
+  color: #1890ff;
+  border: 1px solid #1890ff;
+  transition: 0.1s;
+}
+
+.button:hover img {
+  transform: rotate(360deg);
+}
