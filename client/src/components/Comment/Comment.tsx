@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { formatDistanceToNow } from 'date-fns';
 import { CommentType } from '../../types/types';
 import { getComment } from '../../api';
 import { Divider } from '../Divider';
-import { formatDistanceToNow } from 'date-fns';
+
+import s from './Comment.module.css';
 
 type CommentProps = {
   kid: number;
@@ -21,8 +23,8 @@ export const Comment: React.FC<CommentProps> = ({ kid }) => {
   if (comment.deleted || !comment.time) return null;
 
   return (
-    <div>
-      <header>
+    <div className={s.wrapper}>
+      <header className={s.header}>
         <span>{comment.by}</span>
         <Divider />
         {formatDistanceToNow(new Date(comment.time * 1000))} ago
@@ -30,18 +32,22 @@ export const Comment: React.FC<CommentProps> = ({ kid }) => {
           {comment.kids?.length && !showChildComments ? (
             <>
               <Divider />
-              <span>[{comment.kids?.length} more]</span>
+              <span className={`${s.hover} ${s.em}`}>[{comment.kids?.length} more]</span>
             </>
           ) : (
             <>
               <Divider />
-              <span>[-]</span>
+              <span className={comment.kids?.length ? s.hover : ''}>[-]</span>
             </>
           )}
         </span>
       </header>
       {comment.text && (
-        <p onClick={handleCommentClick} dangerouslySetInnerHTML={{ __html: comment.text }} />
+        <div
+          className={s.comment}
+          onClick={handleCommentClick}
+          dangerouslySetInnerHTML={{ __html: comment.text }}
+        />
       )}
       {showChildComments &&
         comment.kids &&

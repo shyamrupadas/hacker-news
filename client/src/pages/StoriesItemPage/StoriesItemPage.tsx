@@ -30,8 +30,6 @@ export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) 
 
   if (error) return <h1>{error}</h1>;
 
-  if (loading) return <h1>Loading...</h1>;
-
   return story?.time ? (
     <div>
       <NavLink to="/">Back to news list</NavLink>
