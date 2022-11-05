@@ -1,0 +1,23 @@
+.wrapper {
+  vertical-align: center;
+}
+
+.icon {
+  width: 0.8em;
+  height: 0.8em;
+  color: rgba(0, 0, 0, 0.1);
+  margin-right: 0.5em;
+}
+
+@keyframes rotate {
+  from {transform: rotate(0deg)}
+  to {transform: rotate(360deg)}
+}
+
+.rotate {
+  animation-name: rotate;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-play-state: running;
+}
