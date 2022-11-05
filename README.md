@@ -32,3 +32,5 @@ yarn build && yarn preview
 и пользователь может обновить их принудительно.
 
 Время создания статьи или комментария отображается в формате "7 minutes ago" / "about 1 hour ago"
+
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
