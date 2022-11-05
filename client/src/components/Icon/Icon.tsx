@@ -9,7 +9,7 @@ type IconProps = {
 export const Icon: React.FC<IconProps> = ({ rotate }) => {
   return (
     <span className={s.wrapper}>
-      <img className={s.icon + ' ' + (rotate && s.rotate)} src="../../../public/refresh.svg" alt="" />
+      <img className={s.icon + ' ' + (rotate && s.rotate)} src="/refresh.svg" alt="" />
     </span>
   );
 };
