@@ -13,8 +13,10 @@ const app: Express = express();
 app.use(cors());
 app.use('/api/stories', storyRoutes);
 app.use('/api/comments', commentRoutes);
-isProduction && app.use(express.static(path.join(__dirname, "../../client/dist")));
+isProduction && app.use(express.static(path.join(__dirname, '../../client/dist')));
 isProduction && app.use('*', (_, res: Response) => res.redirect('/'));
 app.use('*', (_, res) => res.status(404).json({ message: 'Page not found' }));
 
-app.listen(PORT, () => console.log(`server start on port : ${PORT} \n Local: http://127.0.0.1:${PORT}`));
+app.listen(PORT, () =>
+  console.log(`server start on port : ${PORT} \n Local: http://127.0.0.1:${PORT}`)
+);

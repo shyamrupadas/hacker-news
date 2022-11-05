@@ -5,7 +5,7 @@ import { Divider } from '../Divider';
 import { formatDistanceToNow } from 'date-fns';
 
 type CommentProps = {
-  kid: number
+  kid: number;
 };
 
 export const Comment: React.FC<CommentProps> = ({ kid }) => {
@@ -13,7 +13,7 @@ export const Comment: React.FC<CommentProps> = ({ kid }) => {
   const [showChildComments, setShowChildComment] = useState<boolean>(false);
 
   useEffect(() => {
-    getComment(kid).then(data => data && setComment(data));
+    getComment(kid).then((data) => data && setComment(data));
   }, [kid]);
 
   const handleCommentClick = () => setShowChildComment(!showChildComments);
@@ -27,28 +27,25 @@ export const Comment: React.FC<CommentProps> = ({ kid }) => {
         <Divider />
         {formatDistanceToNow(new Date(comment.time * 1000))} ago
         <span onClick={handleCommentClick}>
-        {
-          comment.kids?.length && !showChildComments
-            ?
+          {comment.kids?.length && !showChildComments ? (
             <>
               <Divider />
               <span>[{comment.kids?.length} more]</span>
             </>
-            :
+          ) : (
             <>
               <Divider />
               <span>[-]</span>
             </>
-        }
-          </span>
+          )}
+        </span>
       </header>
-      {comment.text &&
+      {comment.text && (
         <p onClick={handleCommentClick} dangerouslySetInnerHTML={{ __html: comment.text }} />
-      }
-      {
-        showChildComments && comment.kids &&
-        comment.kids.map((kid: number) => <Comment key={kid} kid={kid} />)
-      }
+      )}
+      {showChildComments &&
+        comment.kids &&
+        comment.kids.map((kid: number) => <Comment key={kid} kid={kid} />)}
     </div>
   );
 };

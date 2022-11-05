@@ -3,9 +3,9 @@ import { StoriesPage } from '../../pages/StoriesPage';
 import { StoriesItemPage } from '../../pages/StoriesItemPage';
 
 export const Routes = () => (
-<Switch>
-  <Route path={'/'} component={StoriesPage} exact />
-  <Route path={'/story/:id'} component={StoriesItemPage} />
-  <Redirect to={'/'} />
-</Switch>
-)
+  <Switch>
+    <Route path={'/'} component={StoriesPage} exact />
+    <Route path={'/story/:id'} component={StoriesItemPage} />
+    <Redirect to={'/'} />
+  </Switch>
+);

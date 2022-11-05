@@ -1,10 +1,10 @@
 import React from 'react';
 
-import s from './Icon.module.css'
+import s from './Icon.module.css';
 
 type IconProps = {
-  rotate?: boolean
-}
+  rotate?: boolean;
+};
 
 export const Icon: React.FC<IconProps> = ({ rotate }) => {
   return (

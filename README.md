@@ -7,13 +7,18 @@ Demo: https://hacker-news-sh.herokuapp.com/
 ## Available Scripts
 
 ### Start in development mode
+
 Frontend will be available on http://127.0.0.1:3000/ <br />
 Backend will be available on http://127.0.0.1:5000/
+
 ```
 yarn dev
 ```
+
 ### Start in production mode
-Application will be available on http://127.0.0.1:5000/ 
+
+Application will be available on http://127.0.0.1:5000/
+
 ```
 yarn build && yarn preview
 ```

@@ -6,15 +6,14 @@ class StoryController {
     try {
       const response = await getStories();
 
-      const promises = response.slice(0, 100)
-        .map((storyId: string) => getItem(storyId));
+      const promises = response.slice(0, 100).map((storyId: string) => getItem(storyId));
 
       const result = await Promise.all(promises);
       res.json(result);
     } catch (e) {
       res.status(500).json(e);
     }
-  };
+  }
 
   async getOne(req: Request, res: Response) {
     try {
@@ -24,7 +23,7 @@ class StoryController {
     } catch (e) {
       res.status(500).json(e);
     }
-  };
+  }
 }
 
 export default new StoryController();

@@ -44,24 +44,8 @@ export const fetchStory = createAsyncThunk(
 export const storySlice = createSlice({
   name: 'story',
   initialState,
-  reducers: {
-    // fetchingStories: (state) => {
-    //   state.loading = true;
-    // },
-    // fetchStoriesSuccess: (state, action: PayloadAction<StoryType[]>) => {
-    //   state.loading = true;
-    //   state.stories = action.payload;
-    // },
-    // fetchStoriesError: (state, action: PayloadAction<string>) => {
-    //   state.loading = false;
-    //   state.error = action.payload;
-    // },
-    // fetchStorySuccess: (state, action: PayloadAction<StoryType>) => {
-    //   state.loading = false;
-    //   state.story = action.payload;
-    // }
-  },
-  extraReducers: builder => {
+  reducers: {},
+  extraReducers: (builder) => {
     builder.addCase(fetchStories.pending, (state) => {
       state.loading = true;
       state.error = null;
@@ -77,11 +61,12 @@ export const storySlice = createSlice({
     });
     builder.addCase(fetchStory.fulfilled, (state, action) => {
       state.loading = false;
-      const storyIndex = state.stories.findIndex(story => story.id === action.payload.id)
-      storyIndex >= 0 ? state.stories[storyIndex] = action.payload : state.stories.push(action.payload);
+      const storyIndex = state.stories.findIndex((story) => story.id === action.payload.id);
+      storyIndex >= 0
+        ? (state.stories[storyIndex] = action.payload)
+        : state.stories.push(action.payload);
     });
-  },
+  }
 });
 
-// export const { fetchingStories, fetchStoriesSuccess, fetchStoriesError, fetchStorySuccess } = storySlice.actions;
 export default storySlice.reducer;

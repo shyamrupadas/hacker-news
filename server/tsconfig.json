@@ -1,10 +1,6 @@
 {
-  "include": [
-    "**/*"
-  ],
-  "exclude": [
-    "dist"
-  ],
+  "include": ["**/*"],
+  "exclude": ["dist"],
   "compilerOptions": {
     "target": "ES2021",
     "module": "esnext",
@@ -24,6 +20,6 @@
     "outDir": "dist",
     "rootDir": "./",
     "sourceMap": true,
-    "useDefineForClassFields": true,
+    "useDefineForClassFields": true
   }
 }

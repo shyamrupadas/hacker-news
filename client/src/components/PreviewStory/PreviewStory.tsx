@@ -6,7 +6,7 @@ import { StoryType } from '../../types/types';
 import s from './PreviewStory.module.css';
 
 type PreviewStoryType = {
-  story: StoryType
+  story: StoryType;
 };
 
 export const PreviewStory: React.FC<PreviewStoryType> = ({ story }) => {
@@ -15,9 +15,7 @@ export const PreviewStory: React.FC<PreviewStoryType> = ({ story }) => {
   return (
     <div className={s.container}>
       <h3>
-        <NavLink to={`story/${id}`}>
-          {title}
-        </NavLink>
+        <NavLink to={`story/${id}`}>{title}</NavLink>
       </h3>
       <StoryAttributes story={story} withLink />
     </div>

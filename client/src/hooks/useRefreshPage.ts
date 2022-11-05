@@ -7,7 +7,7 @@ export const useRefreshPage = (callback: any) => {
   useEffect(() => {
     const refreshPage = setInterval(() => {
       dispatch(callback());
-    },60000);
+    }, 60000);
     return () => clearInterval(refreshPage);
   }, [callback, dispatch]);
 };
