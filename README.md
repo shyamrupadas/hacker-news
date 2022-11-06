@@ -12,7 +12,7 @@ Frontend will be available on http://127.0.0.1:3000/ <br />
 Backend will be available on http://127.0.0.1:5000/
 
 ```
-yarn dev
+yarn start
 ```
 
 ### Build and preview in production mode
