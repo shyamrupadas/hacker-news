@@ -44,7 +44,7 @@ export const Comment: React.FC<CommentProps> = ({ kid }) => {
       </header>
       {comment.text && (
         <div
-          className={s.comment}
+          className={comment.kids?.length ? s.pointer : ''}
           onClick={handleCommentClick}
           dangerouslySetInnerHTML={{ __html: comment.text }}
         />

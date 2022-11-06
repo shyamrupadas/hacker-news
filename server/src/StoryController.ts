@@ -8,8 +8,8 @@ class StoryController {
 
       const promises = response.slice(0, 100).map((storyId: string) => getItem(storyId));
 
-      const result = await Promise.all(promises);
-      res.json(result);
+      const result = await Promise.allSettled(promises);
+      res.json(result.map((res: any) => res.value));
     } catch (e) {
       res.status(500).json(e);
     }
