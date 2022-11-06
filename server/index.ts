@@ -13,8 +13,13 @@ const app: Express = express();
 app.use(cors());
 app.use('/api/stories', storyRoutes);
 app.use('/api/comments', commentRoutes);
+
 isProduction && app.use(express.static(path.join(__dirname, '../../client/dist')));
-isProduction && app.use('*', (_, res: Response) => res.redirect('/'));
+isProduction &&
+  app.use('*', (_, res: Response) => {
+    res.sendFile('index.html', { root: path.join(__dirname, '../../client/dist') });
+  });
+
 app.use('*', (_, res) => res.status(404).json({ message: 'Page not found' }));
 
 app.listen(PORT, () =>
