@@ -11,7 +11,7 @@ export const AppLayout: React.FC<AppLayoutProps> = ({ children }) => {
     <div className={s.container}>
       <main className={s.main}>{children}</main>
       <footer className={s.footer}>
-        &copy; <a href="https://github.com/shyamrupadas">shyamrupadas</a> 2022
+        &copy; <a href="https://github.com/shyamrupadas">shyam</a> 2022
       </footer>
     </div>
   );

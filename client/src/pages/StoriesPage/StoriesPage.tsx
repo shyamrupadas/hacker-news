@@ -7,8 +7,6 @@ import { StoryType } from '../../types/types';
 import { RefreshButton } from '../../components/RefreshButton';
 import { useRefreshPage } from '../../hooks/useRefreshPage';
 
-import s from './StoriesPage.module.css';
-
 export const StoriesPage = () => {
   const { stories, error, loading } = useTypedSelector((state) => state.storySlice);
   const dispatch = useAppDispatch();
@@ -26,20 +24,23 @@ export const StoriesPage = () => {
   if (error) return <h1>{error}</h1>;
 
   return (
-    <div className={s.container}>
+    <>
       <header>
         <h1>Hacker News</h1>
         <RefreshButton onClick={handleRefreshButtonClick} pending={loading} />
       </header>
       <main>
         <ol>
-          {stories.map((story: StoryType) => (
-            <li key={story.id}>
-              <PreviewStory story={story} />
-            </li>
-          ))}
+          {/* Чтобы пользователю, который зашел со страницы новости и перешел на главную,
+              не показывалась одна новость на главной, пока подгружается весь список */}
+          {stories.length > 1 &&
+            stories.map((story: StoryType) => (
+              <li key={story.id}>
+                <PreviewStory story={story} />
+              </li>
+            ))}
         </ol>
       </main>
-    </div>
+    </>
   );
 };

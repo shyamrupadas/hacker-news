@@ -4,17 +4,6 @@ import { getStories, getStory } from '../api';
 
 const initialState: StoryState = {
   stories: [],
-  story: {
-    by: '',
-    descendants: undefined,
-    id: undefined,
-    kids: [],
-    score: undefined,
-    time: undefined,
-    title: '',
-    type: '',
-    url: ''
-  },
   loading: false,
   error: null
 };

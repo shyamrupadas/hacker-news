@@ -31,7 +31,7 @@ export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) 
   if (error) return <h1>{error}</h1>;
 
   return story?.time ? (
-    <div>
+    <>
       <NavLink to="/">Back to news list</NavLink>
       <Divider />
       <a href={story.url} target={'_blank'}>
@@ -44,6 +44,6 @@ export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) 
       {story.kids?.map((kid: number) => (
         <Comment key={kid} kid={kid} />
       ))}
-    </div>
+    </>
   ) : null;
 };

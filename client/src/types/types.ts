@@ -1,6 +1,5 @@
 export type StoryState = {
   stories: StoryType[];
-  story: StoryType;
   loading: boolean;
   error: null | string;
 };
