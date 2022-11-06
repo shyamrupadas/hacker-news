@@ -4,7 +4,7 @@ import { useAppDispatch } from '../../store';
 import { fetchStories } from '../../store/storySlice';
 import { PreviewStory } from '../../components/PreviewStory';
 import { StoryType } from '../../types/types';
-import { Button } from '../../components/Button';
+import { RefreshButton } from '../../components/RefreshButton';
 import { useRefreshPage } from '../../hooks/useRefreshPage';
 
 import s from './StoriesPage.module.css';
@@ -29,9 +29,9 @@ export const StoriesPage = () => {
     <div className={s.container}>
       <header>
         <h1>Hacker News</h1>
-        <Button onClick={handleRefreshButtonClick} pending={loading}>
+        <RefreshButton onClick={handleRefreshButtonClick} pending={loading}>
           Refresh
-        </Button>
+        </RefreshButton>
       </header>
       <main>
         <ol>

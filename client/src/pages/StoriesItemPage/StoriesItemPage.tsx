@@ -5,7 +5,7 @@ import { useAppDispatch } from '../../store';
 import { fetchStory } from '../../store/storySlice';
 import { Comment } from '../../components/Comment';
 import { Divider } from '../../components/Divider';
-import { Button } from '../../components/Button';
+import { RefreshButton } from '../../components/RefreshButton';
 import { useRefreshPage } from '../../hooks/useRefreshPage';
 import { StoryAttributes } from '../../components/StoryAttributes';
 
@@ -38,9 +38,9 @@ export const StoriesItemPage = ({ match }: RouteComponentProps<{ id: string }>) 
         Read the original
       </a>
       <Divider />
-      <Button onClick={handleRefreshButtonClick} pending={loading}>
+      <RefreshButton onClick={handleRefreshButtonClick} pending={loading}>
         Refresh
-      </Button>
+      </RefreshButton>
       <h2>{story.title}</h2>
       <StoryAttributes story={story} />
       {story.kids?.map((kid: number) => (
