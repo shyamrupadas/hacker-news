@@ -4,12 +4,11 @@ import { RefreshIcon } from '../RefreshIcon';
 import s from './RefreshButton.module.css';
 
 type ButtonType = {
-  children: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
   pending?: boolean;
 };
 
-export const RefreshButton: React.FC<ButtonType> = ({ children, onClick, pending }) => {
+export const RefreshButton: React.FC<ButtonType> = ({ onClick, pending }) => {
   const [isHover, setIsHover] = useState<boolean>(false);
 
   const handleHoverOn = () => {
@@ -27,7 +26,7 @@ export const RefreshButton: React.FC<ButtonType> = ({ children, onClick, pending
       onMouseEnter={handleHoverOn}
       onMouseLeave={handleHoverOff}>
       <RefreshIcon rotate={pending} hover={isHover} />
-      {children}
+      Refresh
     </button>
   );
 };

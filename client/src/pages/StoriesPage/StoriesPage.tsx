@@ -29,9 +29,7 @@ export const StoriesPage = () => {
     <div className={s.container}>
       <header>
         <h1>Hacker News</h1>
-        <RefreshButton onClick={handleRefreshButtonClick} pending={loading}>
-          Refresh
-        </RefreshButton>
+        <RefreshButton onClick={handleRefreshButtonClick} pending={loading} />
       </header>
       <main>
         <ol>
