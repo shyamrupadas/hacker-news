@@ -17,7 +17,7 @@ yarn dev
 
 ### Build and preview in production mode
 
-Application will be available on http://127.0.0.1:5000/
+Production preview will be available on http://127.0.0.1:3000/
 
 ```
 yarn build && yarn preview
