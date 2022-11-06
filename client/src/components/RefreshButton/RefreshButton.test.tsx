@@ -1,5 +1,5 @@
-import { RefreshButton } from './RefreshButton';
 import { render, screen } from '@testing-library/react';
+import { RefreshButton } from './RefreshButton';
 
 describe('When app start', () => {
   it('renders the button and displays Refresh', () => {
