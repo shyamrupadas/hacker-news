@@ -15,7 +15,7 @@ Backend will be available on http://127.0.0.1:5000/
 yarn dev
 ```
 
-### Start in production mode
+### Build and preview in production mode
 
 Application will be available on http://127.0.0.1:5000/
 
