@@ -7,6 +7,17 @@
   height: 0.8em;
   color: rgba(0, 0, 0, 0.1);
   margin-right: 0.5em;
+  fill: #1890ff;
+}
+
+.svg {
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.5em;
+}
+
+.hover {
+  fill: #1890ff;
 }
 
 @keyframes rotate {
@@ -25,3 +36,4 @@
   animation-timing-function: linear;
   animation-play-state: running;
 }
+
