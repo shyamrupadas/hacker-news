@@ -2,7 +2,7 @@ import { RefreshButton } from './RefreshButton';
 import { render, screen } from '@testing-library/react';
 
 describe('When app start', () => {
-  it('renders the button and displays Refresh', async () => {
+  it('renders the button and displays Refresh', () => {
     render(<RefreshButton onClick={() => {}} />);
 
     const result = screen.getByRole('button', { name: /refresh/i });

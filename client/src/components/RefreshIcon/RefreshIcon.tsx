@@ -9,7 +9,7 @@ type IconProps = {
 
 export const RefreshIcon: React.FC<IconProps> = ({ rotate, hover }) => {
   return (
-    <span className={s.wrapper}>
+    <span className={s.wrapper} data-testid="refresh">
       <svg
         className={s.svg + ' ' + (rotate && s.rotate) + ' ' + (hover && s.hover)}
         version="1.1"
@@ -17,10 +17,7 @@ export const RefreshIcon: React.FC<IconProps> = ({ rotate, hover }) => {
         xmlns="http://www.w3.org/2000/svg"
         x="0px"
         y="0px"
-        viewBox="0 0 489.698 489.698"
-        // style="enable-background:new 0 0 489.698 489.698;"
-        // xml:space="preserve"
-      >
+        viewBox="0 0 489.698 489.698">
         <g>
           <g>
             <path
