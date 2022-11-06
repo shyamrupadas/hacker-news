@@ -1,10 +1,10 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { formatDistanceToNow } from 'date-fns';
 import { StoryType } from '../../types/types';
 import { Divider } from '../Divider';
 
 import s from './StoryAttributes.module.css';
+import { PostedDate } from '../PostedDate';
 
 type StoryAttributesType = {
   story: StoryType;
@@ -14,11 +14,13 @@ type StoryAttributesType = {
 export const StoryAttributes: React.FC<StoryAttributesType> = ({ story, withLink }) => {
   const { score, by, descendants, id, time, kids } = story;
 
+  if (!time) return null;
+
   return (
     <div className={s.wrapper}>
       {score} points by {by}
       <Divider />
-      {time && formatDistanceToNow(new Date(time * 1000))} ago
+      <PostedDate time={time} />
       {kids?.length && (
         <span>
           <Divider />

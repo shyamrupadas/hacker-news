@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { formatDistanceToNow } from 'date-fns';
 import { CommentType } from '../../types/types';
 import { getComment } from '../../api';
 import { Divider } from '../Divider';
+import { PostedDate } from '../PostedDate';
 
 import s from './Comment.module.css';
 
@@ -27,7 +27,7 @@ export const Comment: React.FC<CommentProps> = ({ kid }) => {
       <header className={s.header}>
         <span>{comment.by}</span>
         <Divider />
-        {formatDistanceToNow(new Date(comment.time * 1000))} ago
+        <PostedDate time={comment.time} />
       </header>
       {comment.text && (
         <div

@@ -23,7 +23,7 @@ Production preview will be available on http://127.0.0.1:3000/
 yarn build && yarn preview
 ```
 
-### Start frontend test
+### Start frontend tests
 
 ```
 yarn test
