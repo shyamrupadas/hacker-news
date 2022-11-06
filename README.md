@@ -23,11 +23,19 @@ Application will be available on http://127.0.0.1:5000/
 yarn build && yarn preview
 ```
 
+### Start frontend test
+
+```
+yarn test
+```
+
 ## Реализованный функционал
 
 Разработать пользовательский интерфейс для портала [Hacker News](https://news.ycombinator.com/) на базе Hacker News API: https://github.com/HackerNews/API
 
 Отображается последние 100 новостей портала.
+
+По клику на новость происходит переход на страницу новости
 
 При клике на статью открывается дерево комментариев.
 Комментарии верхнего уровня развернуты, остальные свернуты.
