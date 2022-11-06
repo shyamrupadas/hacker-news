@@ -28,19 +28,6 @@ export const Comment: React.FC<CommentProps> = ({ kid }) => {
         <span>{comment.by}</span>
         <Divider />
         {formatDistanceToNow(new Date(comment.time * 1000))} ago
-        <span onClick={handleCommentClick}>
-          {comment.kids?.length && !showChildComments ? (
-            <>
-              <Divider />
-              <span className={`${s.hover} ${s.em}`}>[{comment.kids?.length} more]</span>
-            </>
-          ) : (
-            <>
-              <Divider />
-              <span className={comment.kids?.length ? s.hover : ''}>[-]</span>
-            </>
-          )}
-        </span>
       </header>
       {comment.text && (
         <div
@@ -49,6 +36,12 @@ export const Comment: React.FC<CommentProps> = ({ kid }) => {
           dangerouslySetInnerHTML={{ __html: comment.text }}
         />
       )}
+      {comment.kids?.length ? (
+        <div className={s.expandWrapper} onClick={handleCommentClick}>
+          <div className={showChildComments ? s.collapse : s.expand}></div>
+          {!showChildComments ? <>{comment.kids?.length} more</> : <>collapse</>}
+        </div>
+      ) : null}
       {showChildComments &&
         comment.kids &&
         comment.kids.map((kid: number) => <Comment key={kid} kid={kid} />)}
