@@ -1,8 +1,11 @@
 name: Main workflow
+
 on: push
+
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -17,7 +20,7 @@ jobs:
         run: corepack enable
 
       - name: Install dependencies
-        uses: yarn
+        run: yarn
 
       - name: Run tests
         run: yarn test
