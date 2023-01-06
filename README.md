@@ -1,6 +1,9 @@
 <p align="center">
-  [![Tests](https://github.com/shyamrupadas/hacker-news/actions/workflows/main.yml/badge.svg)](https://github.com/shyamrupadas/hacker-news/actions/workflows)
-  [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+  <a href="https://github.com/shyamrupadas/hacker-news/actions/workflows/main.yml">
+    <img src="https://github.com/shyamrupadas/hacker-news/actions/workflows/main.yml/badge.svg">
+  </a>
+  <a href="https://github.com/prettier/prettier">
+    <img src="https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square">
 </p>
 
 # Hacker news clone
