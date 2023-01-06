@@ -1,8 +1,23 @@
 name: Main workflow
-on: workflow_dispatch
+on: push
 jobs:
-  print:
+  test:
     runs-on: ubuntu-latest
     steps:
-      - name: First
-        run: echo Hello
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.14.2'
+          cache: 'yarn'
+
+      - name: Install yarn
+        run: corepack enable
+
+      - name: Install dependencies
+        uses: yarn
+
+      - name: Run tests
+        run: yarn test
