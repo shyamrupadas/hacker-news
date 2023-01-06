@@ -1,7 +1,8 @@
 name: Main workflow
 on: workflow_dispatch
-jobs: 
-  runs-on: ubuntu-latest
-  steps:
-    - name: First
-      run: echo Hello
+jobs:
+  print:
+    runs-on: ubuntu-latest
+    steps:
+      - name: First
+        run: echo Hello
