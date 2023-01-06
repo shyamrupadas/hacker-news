@@ -1,3 +1,5 @@
+![Tests](https://github.com/shyamrupadas/hacker-news/actions/workflows/main.yml/badge.svg)
+
 # Hacker news clone
 
 ## Test task for Avito
