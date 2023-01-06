@@ -1,5 +1,5 @@
 <p align="center">
-  [![Tests](https://github.com/shyamrupadas/hacker-news/actions/workflows/main.yml/badge.svg)](https://github.com/shyamrupadas/hacker-news/actions/workflows/main.yml)
+  [![Tests](https://github.com/shyamrupadas/hacker-news/actions/workflows/main.yml/badge.svg)](https://github.com/shyamrupadas/hacker-news/actions/workflows)
   [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 </p>
 
