@@ -1,4 +1,7 @@
-![Tests](https://github.com/shyamrupadas/hacker-news/actions/workflows/main.yml/badge.svg)
+<p align="center">
+  [![Tests](https://github.com/shyamrupadas/hacker-news/actions/workflows/main.yml/badge.svg)](https://github.com/shyamrupadas/hacker-news/actions/workflows/main.yml)
+  [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+</p>
 
 # Hacker news clone
 
@@ -48,5 +51,3 @@ yarn test
 - Использован официальный API Hacker News: https://github.com/hackernews/api
 - Бэкенд для хостинга статики и API для инкапсуляции внешних запросов на Node.JS
 - Покрытие кода юнит-тестами
-
-[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
